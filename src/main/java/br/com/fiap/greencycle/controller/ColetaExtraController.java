@@ -25,7 +25,7 @@ public class ColetaExtraController {
 	@Autowired
 	private ColetaExtraService coletaExtraService;
 	
-	// Endpoint GET por ID
+	// Endpoint GET por Id
 	@GetMapping("/{idColetaE}")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<ColetaExtra> buscarPeloId(@PathVariable String idColetaE) {
