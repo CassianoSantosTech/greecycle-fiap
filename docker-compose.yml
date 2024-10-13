@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  # Serviço do MongoDB
+  mongodb:
+    image: mongo:6.0
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root_pass
+    volumes:
+      - mongodb_data:/data/db
+
+  # Serviço da API Java (Greencycle)
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - PROFILE=dev
+      - SPRING_DATA_MONGODB_URI=mongodb+srv://cassivariedadesAdmin:admin%401234@cluster0.o10wb.mongodb.net/greencycle?retryWrites=true&w=majority
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb_data:
+    driver: local
