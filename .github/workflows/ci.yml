@@ -18,13 +18,13 @@ jobs:
 
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v3  # Atualizando para a versão mais recente
+      uses: actions/checkout@v3
 
     - name: Set up JDK 21
-      uses: actions/setup-java@v3  # Atualizando para a versão mais recente
+      uses: actions/setup-java@v3
       with:
         java-version: '21'
-        distribution: 'temurin'  # Define a distribuição do JDK
+        distribution: 'temurin'
 
     - name: Build with Maven
       run: mvn clean install
