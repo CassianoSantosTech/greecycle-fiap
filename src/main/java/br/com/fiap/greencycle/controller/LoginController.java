@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.greencycle.model.Login;
 import br.com.fiap.greencycle.service.LoginService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/login")
@@ -36,7 +37,7 @@ public class LoginController {
 	// Endpoint POST
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Login salvar(@RequestBody Login login) {
+	public Login salvar(@Valid @RequestBody Login login) {
 		System.out.println("Recebido para salvar: " + login);
 		return loginService.salvar(login);
 	}

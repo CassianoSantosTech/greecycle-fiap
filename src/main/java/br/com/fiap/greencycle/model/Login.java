@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -27,6 +28,7 @@ public class Login {
     @Field("id_usuario")
     private Long idUsuario;
 
+    @NotBlank(message = "Email é obrigatório")
 	@JsonProperty("emailLogin")
     @Field("email_login")
     private String emailLogin;
